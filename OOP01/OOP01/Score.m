@@ -10,19 +10,24 @@
 
 @implementation Score
 
+// メソッド定義
 - (float)average:(int)score1 eScore:(int)score2 jScore:(int)score3
 {
     return (float)(score1 + score2 + score3) / 3.0f;
 }
 
+/*
+// セッタ定義
 - (void)setIdNumber:(int)number
 {
     idNumber = number;
 }
 
+// ゲッタ定義
 - (int)getIdNumber
 {
     return idNumber;
 }
+*/
 
 @end

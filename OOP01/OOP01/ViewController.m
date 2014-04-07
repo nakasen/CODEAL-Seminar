@@ -18,11 +18,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    Score *score = [[Score alloc] init];
     
-    [score setIdNumber:107];
-    float average3 = [score average:70 eScore:50 jScore:80];
-    NSLog(@"ID番号%dの学生の３科目の平均点は%.2f点です。", [score getIdNumber], average3);
+    Score *score = [[Score alloc] init]; // インスタンス生成
+    
+    // [score setIdNumber:107]; // セッタ呼び出し
+    score.idNumber = 107; // ドットシンタックスでセット
+    
+    float average3 = [score average:70 eScore:50 jScore:80]; // メソッド実行
+    
+    // NSLog(@"ID番号%dの学生の３科目の平均点は%.2f点です。", [score getIdNumber], average3); // ゲッタ呼び出し
+    NSLog(@"ID番号%dの学生の３科目の平均点は%.2f点です。", score.idNumber, average3); // ドットシンタックスでゲット
+
     // "%.2f"で小数点以下2桁表示
 }
 

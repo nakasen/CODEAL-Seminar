@@ -11,15 +11,17 @@
 @interface Score : NSObject
 {
     // 以下の４項目は今回は未使用。セッタ、ゲッタを使ってアクセスできる。
-    int idNumber;
+    // int idNumber;
     int math;
     int english;
     int japanese;
 }
 
+@property (nonatomic) int idNumber;
+
 - (float)average:(int)score1 eScore:(int)score2 jScore:(int)score3;
 
-- (void)setIdNumber:(int)number;
-- (int)getIdNumber;
+//- (void)setIdNumber:(int)number;
+//- (int)getIdNumber;
 
 @end
