@@ -20,14 +20,16 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor lightGrayColor]; // Viewの背景色を変更
     
-    UILabel *myLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(60, 50, 200, 100)]; // 指定イニシャライザで初期化
+    UILabel *myLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(60, 50, 200, 100)];
+    // 指定イニシャライザで初期化
     myLabel1.backgroundColor = [UIColor blueColor]; // Labelの背景色を変更
     myLabel1.textColor = [UIColor yellowColor]; // Labelの文字色を変更
     myLabel1.textAlignment = NSTextAlignmentCenter; // 中央揃え
     myLabel1.text = @"ラベル１"; // Labelタイトル
     [self.view addSubview:myLabel1]; // LabelをViewに貼り付け
     
-    UIButton *myButton1 = [UIButton buttonWithType:UIButtonTypeCustom]; // コンビニエンスコンストラクタで初期化
+    UIButton *myButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    // コンビニエンスコンストラクタで初期化
     myButton1.frame = CGRectMake(60, 200, 200, 100);
     myButton1.backgroundColor = [UIColor redColor]; // Buttonの背景色を変更
     [myButton1 setTitle:@"ボタン１" forState:UIControlStateNormal]; // 通常時のButtonタイトル
