@@ -39,7 +39,6 @@
 }
 
 - (void)displayMessage:(UITextField *)inputTextField {
-    NSLog(@"pass");
     int inputNumber = [inputTextField.text intValue];
     int answerAge = inputNumber + 5;
     _messageLabel.text = [NSString stringWithFormat:@"あなたの本当の年齢は%d才ですね。", answerAge];
