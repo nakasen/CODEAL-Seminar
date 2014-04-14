@@ -13,7 +13,7 @@
 - (float)average:(NSDictionary *)score { // 平均点を求めるメソッド
     int total = 0;
     for (id obj in [score allValues]) {
-        total += [obj intValue];
+        total += [obj intValue]; // オブジェクトをint型に変換
     }
     return (float)total / (float)[[score allKeys] count];
 }

@@ -35,7 +35,7 @@
     
     dataArray = @[@"A", @"B", @"C", @"D", @"E"];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"CustomTableViewCell" bundle:nil] forCellReuseIdentifier:@"CustomCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CustomTableViewCell" bundle:nil] forCellReuseIdentifier:@"CustomCell"]; // xibファイルでカスタマイズした時に指定
 }
 
 - (void)didReceiveMemoryWarning

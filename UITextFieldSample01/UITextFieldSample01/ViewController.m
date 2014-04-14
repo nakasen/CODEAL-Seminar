@@ -22,7 +22,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.view.backgroundColor = [UIColor lightGrayColor];
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(60, 50, 200, 30)];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(50, 50, 220, 30)];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.placeholder = @"年齢を入力して下さい。";
     textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -32,16 +32,16 @@
         forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.view addSubview:textField];
     
-    _messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 280, 50)];
-    _messageLabel.textColor = [UIColor redColor];
-    _messageLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_messageLabel];
+    self.messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 280, 50)];
+    self.messageLabel.textColor = [UIColor redColor];
+    self.messageLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.messageLabel];
 }
 
 - (void)displayMessage:(UITextField *)inputTextField {
     int inputNumber = [inputTextField.text intValue];
     int answerAge = inputNumber + 5;
-    _messageLabel.text = [NSString stringWithFormat:@"あなたの本当の年齢は%d才ですね。", answerAge];
+    self.messageLabel.text = [NSString stringWithFormat:@"あなたの本当の年齢は%d才ですね。", answerAge];
 }
 
 - (void)didReceiveMemoryWarning
