@@ -86,7 +86,7 @@
     }
     [sheet addButtonWithTitle:@"キャンセル"];
     sheet.cancelButtonIndex = self.twitterAccounts.count;
-    sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    sheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [sheet showInView:self.view];
 }
 

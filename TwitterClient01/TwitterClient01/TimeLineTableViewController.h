@@ -10,6 +10,7 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "TimeLineCell.h"
+#import "DetailViewController.h"
 
 @interface TimeLineTableViewController : UITableViewController
 

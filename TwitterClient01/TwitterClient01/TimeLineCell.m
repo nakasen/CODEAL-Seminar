@@ -15,7 +15,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        
         _paddingTop = 5;
         _paddingBottom = 5;
         
@@ -23,6 +22,7 @@
         _tweetTextLabel.font = [UIFont systemFontOfSize:14.0f];
         _tweetTextLabel.textColor = [UIColor blackColor];
         _tweetTextLabel.numberOfLines = 0;
+        [_tweetTextLabel sizeToFit];
         [self.contentView addSubview:_tweetTextLabel];
         
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -33,7 +33,6 @@
         _profileImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         _profileImageView.image = _image;
         [self.contentView addSubview:_profileImageView];
-
     }
     return self;
 }
@@ -45,11 +44,6 @@
     self.profileImageView.frame = CGRectMake(5, self.paddingTop, 48, 48);
     self.tweetTextLabel.frame = CGRectMake(58, self.paddingTop, 257, self.tweetTextLabelHeight);
     self.nameLabel.frame = CGRectMake(58, self.paddingTop + self.tweetTextLabelHeight + 10, 257, 15);
-}
-
-- (void)awakeFromNib
-{
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

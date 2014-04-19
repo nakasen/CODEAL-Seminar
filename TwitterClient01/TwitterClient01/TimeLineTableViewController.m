@@ -137,13 +137,15 @@
     if (!self.timeLineData) {
         return 1;
     } else {
-        return [self.timeLineData count];
+        return self.timeLineData.count;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimeLineCell" forIndexPath:indexPath];
+    TimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TimeLineCell"
+                                                         forIndexPath:indexPath];
     
     // Configure the cell...
     
@@ -251,5 +253,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TimeLineCell *cell = (TimeLineCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    DetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    detailViewController.name = cell.nameLabel.text;
+    detailViewController.text = cell.tweetTextLabel.text;
+    detailViewController.image = cell.profileImageView.image;
+    detailViewController.identifier = self.identifier;
+    detailViewController.idStr = self.timeLineData[indexPath.row][@"id_str"];
+
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
 
 @end
