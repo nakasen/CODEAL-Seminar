@@ -16,18 +16,4 @@
     return (float)(score1 + score2 + score3) / 3.0f;
 }
 
-/*
-// セッタ定義
-- (void)setIdNumber:(int)number
-{
-    idNumber = number;
-}
-
-// ゲッタ定義
-- (int)getIdNumber
-{
-    return idNumber;
-}
-*/
-
 @end

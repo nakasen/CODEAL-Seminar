@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Score.h"
+#import "Score.h" // カスタムクラスのインポート
 
 @interface ViewController : UIViewController
 

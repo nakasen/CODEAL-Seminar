@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Report.h"
+#import "Report.h" // カスタムクラスのインポート
 
 @interface ViewController : UIViewController
 
