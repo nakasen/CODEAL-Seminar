@@ -13,9 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *tweetActionButton;
 @property (weak, nonatomic) IBOutlet UILabel *accountDisplayLabel;
 
-@property ACAccountStore *accountStore;
-@property NSString *identifier;
-@property NSArray *twitterAccounts;
+@property (nonatomic, strong) ACAccountStore *accountStore;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSArray *twitterAccounts;
 
 @end
 

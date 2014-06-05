@@ -10,10 +10,10 @@
 
 @interface TimeLineTableViewController ()
 
-@property dispatch_queue_t mainQueue;
-@property dispatch_queue_t imageQueue;
-@property NSString *httpErrorMessage;
-@property NSArray *timeLineData;
+@property (nonatomic) dispatch_queue_t mainQueue;
+@property (nonatomic) dispatch_queue_t imageQueue;
+@property (nonatomic, copy) NSString *httpErrorMessage;
+@property (nonatomic, copy) NSArray *timeLineData;
 
 @end
 
@@ -38,15 +38,30 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView registerClass:[TimeLineCell class] forCellReuseIdentifier:@"TimeLineCell"];
-    
     self.mainQueue = dispatch_get_main_queue();
     self.imageQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     
+    // iOS6以降のセル再利用のパターン
+    [self.tableView registerClass:[TimeLineCell class] forCellReuseIdentifier:@"TimeLineCell"];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    // tableViewの中身が空の場合でも UIRefreshControl を使えるようにする
+    self.tableView.alwaysBounceVertical = YES;
+    [refreshControl addTarget:self
+                       action:@selector(refreshAction:)
+             forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    
+    [self getRequest];
+}
+
+- (void)getRequest
+{
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccount *account = [accountStore accountWithIdentifier:self.identifier];
     
-    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
+                  @"/1.1/statuses/home_timeline.json"];
     NSDictionary *params = @{@"count" : @"100",
                              @"trim_user" : @"0",
                              @"include_entities" : @"0"};
@@ -54,14 +69,15 @@
                                             requestMethod:SLRequestMethodGET
                                                       URL:url
                                                parameters:params];
-    [request setAccount:account];
+    
+    request.account = account;
     
     UIApplication *application = [UIApplication sharedApplication];
-    application.networkActivityIndicatorVisible = YES;
+    application.networkActivityIndicatorVisible = YES; // インジケータON
     
     [request performRequestWithHandler:^(NSData *responseData,
                                          NSHTTPURLResponse *urlResponse,
-                                         NSError *error) {
+                                         NSError *error) { // ここからは別スレッド（キュー）
         if (responseData) {
             self.httpErrorMessage = nil;
             if (urlResponse.statusCode >= 200 && urlResponse.statusCode < 300) {
@@ -72,22 +88,31 @@
                                                   error:&jsonError];
                 if (self.timeLineData) {
                     NSLog(@"Timeline Response: %@\n", self.timeLineData);
-                    dispatch_async(self.mainQueue, ^{
-                        [self.tableView reloadData];
+                    dispatch_async(dispatch_get_main_queue(), ^{ // UI処理はメインキューで
+                        [self.tableView reloadData]; // テーブルビュー書き換え
                     });
-                } else {
+                } else { // JSONシリアライズエラー発生時
                     NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
                 }
-            } else {
+            } else { // HTTPエラー発生時
                 self.httpErrorMessage =
                 [NSString stringWithFormat:@"The response status code is %d",
                  urlResponse.statusCode];
                 NSLog(@"HTTP Error: %@", self.httpErrorMessage);
+                dispatch_async(dispatch_get_main_queue(), ^{ // UI処理はメインキューで
+                    [self.tableView reloadData]; // テーブルビュー書き換え
+                });
             }
+        } else { // リクエスト送信エラー発生時
+            NSLog(@"ERROR: An error occurred while requesting: %@", [error localizedDescription]);
+            // リクエスト時の送信エラーメッセージを画面に表示する領域がない。今後の課題。
         }
-        dispatch_async(self.mainQueue, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             UIApplication *application = [UIApplication sharedApplication];
-            application.networkActivityIndicatorVisible = NO;
+            application.networkActivityIndicatorVisible = NO; // インジケータOFF
+            if (self.refreshControl.refreshing) {
+                [self.refreshControl endRefreshing]; // refreshActionの終了処理をこちらに移動
+            }
         });
     }];
 }
@@ -98,29 +123,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (CGFloat)labelHeight:(NSString *)labelText
+- (void)refreshAction:(id)sender
 {
-    // ラベルの行間設定
-    UILabel *aLabel = [[UILabel alloc] init];
-    CGFloat lineHeight = 18.0;
-    NSMutableParagraphStyle *paragrahStyle = [[NSMutableParagraphStyle alloc] init];
-    paragrahStyle.minimumLineHeight = lineHeight;
-    paragrahStyle.maximumLineHeight = lineHeight;
+    // 更新開始　インジケータON
+    [self.refreshControl beginRefreshing];
     
-    // テキスト属性を付与
-    NSString *text = (labelText == nil) ? @"" : labelText;
-    UIFont *font = [UIFont fontWithName:@"HiraKakuProN-W3" size:14];
-    NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragrahStyle,
-                                 NSFontAttributeName: font};
-    NSAttributedString *aText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
-    aLabel.attributedText = aText;
+    // 更新処理
+    [self getRequest];
     
-    // ラベルの高さ計算
-    CGFloat aHeight =
-    [aLabel.attributedText boundingRectWithSize:CGSizeMake(257, MAXFLOAT)
-                                               options:NSStringDrawingUsesLineFragmentOrigin
-                                               context:nil].size.height;
-    return aHeight;
+    // 更新終了　インジケータOFF
+    // 通常以下の処理はこのメソッド内で良いが、今回の更新処理は非同期なので
+    // dispatch_async()のメインキュー処理ブロック内に記述する必要がある。
+    // [self.refreshControl endRefreshing];
 }
 
 #pragma mark - Table view data source
@@ -156,20 +170,15 @@
         cell.tweetTextLabel.text = @"Loading...";
         cell.tweetTextLabelHeight = 24;
     } else {
-        NSString *name = self.timeLineData[indexPath.row][@"user"][@"screen_name"];
-        NSString *text = self.timeLineData[indexPath.row][@"text"];
+        SharedDataManager *sharedManager = [SharedDataManager sharedManager];
         
-        // カスタムセルを使わない場合は以下の4行
-        // cell.textLabel.font = [UIFont systemFontOfSize:14];
-        // cell.textLabel.numberOfLines = 0;
-        // cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
-        // cell.detailTextLabel.text = name;
+        NSString *tweetText = self.timeLineData[indexPath.row][@"text"];
+        NSAttributedString *attributedTweetText = [sharedManager attributedText:tweetText];
         
-        cell.tweetTextLabelHeight = [self labelHeight:text];
-        cell.tweetTextLabel.text = text;
-        cell.nameLabel.text = name;
-        
+        cell.tweetTextLabel.attributedText = attributedTweetText;
+        cell.nameLabel.text = self.timeLineData[indexPath.row][@"user"][@"screen_name"];
         cell.profileImageView.image = [UIImage imageNamed:@"blank.png"];
+        cell.tweetTextLabelHeight = [sharedManager tweetTextLabelHeight:attributedTweetText];
         
         UIApplication *application = [UIApplication sharedApplication];
         application.networkActivityIndicatorVisible = YES;
@@ -200,9 +209,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SharedDataManager *sharedManager = [SharedDataManager sharedManager];
+    
     NSString *tweetText = self.timeLineData[indexPath.row][@"text"];
-    CGFloat tweetTextLabelHeight = [self labelHeight:tweetText];
-    return tweetTextLabelHeight + 35;
+    NSAttributedString *attributedTweetText = [sharedManager attributedText:tweetText];
+    CGFloat tweetTextLabelHeight = [sharedManager tweetTextLabelHeight:attributedTweetText];
+    CGFloat cellHeight = sharedManager.marginY1 + tweetTextLabelHeight
+        + sharedManager.marginY2 + sharedManager.nameLabelY + sharedManager.marginY3;
+    return  cellHeight;
 }
 
 /*

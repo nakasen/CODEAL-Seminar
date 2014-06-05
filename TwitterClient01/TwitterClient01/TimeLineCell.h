@@ -7,15 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SharedDataManager.h"
 
 @interface TimeLineCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *tweetTextLabel;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UIImageView *profileImageView;
-@property (nonatomic, strong) UIImage *image;
 @property (nonatomic) CGFloat tweetTextLabelHeight;
-@property (nonatomic) CGFloat paddingTop;
-@property (nonatomic) CGFloat paddingBottom;
 
 @end

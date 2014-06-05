@@ -10,6 +10,6 @@
 
 @interface WebViewController : UIViewController <UIWebViewDelegate>
 
-@property NSURL *openURL;
+@property (nonatomic, strong) NSURL *openURL;
 
 @end

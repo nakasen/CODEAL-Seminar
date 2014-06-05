@@ -12,6 +12,6 @@
 
 @interface MyUIApplication : UIApplication
 
-@property NSURL *myOpenURL;
+@property (nonatomic, strong) NSURL *myOpenURL;
 
 @end

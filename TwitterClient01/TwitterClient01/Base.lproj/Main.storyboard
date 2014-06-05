@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="T4Y-U0-wJE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="T4Y-U0-wJE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -67,7 +67,7 @@
             </objects>
             <point key="canvasLocation" x="739" y="138"/>
         </scene>
-        <!--Time Line Table View Controller-->
+        <!--Time Line Table View Controller - Time Line-->
         <scene sceneID="P79-Kt-vbp">
             <objects>
                 <tableViewController id="m4V-xe-D31" customClass="TimeLineTableViewController" sceneMemberID="viewController">
@@ -75,22 +75,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ar4-pk-xwN">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ar4-pk-xwN" id="nWX-Te-dOC">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="m4V-xe-D31" id="ios-9F-ryy"/>
                             <outlet property="delegate" destination="m4V-xe-D31" id="cER-Gj-rNL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="awb-uo-q3P"/>
+                    <navigationItem key="navigationItem" title="Time Line" id="awb-uo-q3P"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rP-fk-sIR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,8 +132,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="WH2-Nr-wGL"/>
                     <connections>
-                        <outlet property="imageView" destination="1xz-Kd-bEA" id="W59-gU-1iw"/>
                         <outlet property="nameView" destination="jSf-BP-zxZ" id="9AU-zg-uSv"/>
+                        <outlet property="profileImageView" destination="1xz-Kd-bEA" id="YHC-cu-OSt"/>
                         <outlet property="textView" destination="Rpi-0e-BvV" id="T7o-Yt-OsD"/>
                     </connections>
                 </viewController>

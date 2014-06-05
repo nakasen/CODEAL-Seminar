@@ -10,15 +10,7 @@
 
 @implementation CalciTax
 
-- (void)setTax:(float)taxRate
-{
-    tax = taxRate;
-}
-
-- (float)getTax
-{
-    return tax;
-}
+// セッタ、ゲッタは不要
 
 - (float)iTax:(int)price tax:(float)taxRate
 {

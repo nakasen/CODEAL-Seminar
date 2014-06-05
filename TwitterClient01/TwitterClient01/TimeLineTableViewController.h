@@ -11,9 +11,10 @@
 #import <Accounts/Accounts.h>
 #import "TimeLineCell.h"
 #import "DetailViewController.h"
+#import "SharedDataManager.h"
 
 @interface TimeLineTableViewController : UITableViewController
 
-@property (nonatomic) NSString *identifier;
+@property (nonatomic, copy) NSString *identifier;
 
 @end

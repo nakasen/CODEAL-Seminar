@@ -12,10 +12,10 @@
 
 @interface DetailViewController : UIViewController
 
-@property NSString *name;
-@property NSString *text;
-@property UIImage *image;
-@property NSString *identifier;
-@property NSString *idStr;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSString *idStr;
 
 @end
