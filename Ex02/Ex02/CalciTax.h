@@ -10,8 +10,6 @@
 
 @interface CalciTax : NSObject
 
-@property (nonatomic) float tax; // @propertyでセッタ、ゲッタが自動生成される。
-
 - (float)iTax:(int)price tax:(float)taxRate;
 
 @end

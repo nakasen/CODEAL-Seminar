@@ -10,8 +10,6 @@
 
 @implementation CalciTax
 
-// セッタ、ゲッタは不要
-
 - (float)iTax:(int)price tax:(float)taxRate
 {
     return price * (float)(1.0f + taxRate);

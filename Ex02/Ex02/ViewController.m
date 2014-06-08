@@ -21,9 +21,9 @@
     
     CalciTax *calciTax = [[CalciTax alloc] init];
     int price = 500;
-    calciTax.tax = 0.08f; // @property指定してある場合、ドットシンタックスでアクセスできる（セッタは自動生成）。
-    float iTax = [calciTax iTax:price tax:calciTax.tax]; // ゲッタも同様
-    NSLog(@"価格%d円の税込金額は%.0f円です。（消費税率%.0f%%）", price, iTax, calciTax.tax * 100.0f);
+    float tax = 0.08f;
+    float iTax = [calciTax iTax:price tax:tax];
+    NSLog(@"価格%d円の税込金額は%.0f円です。（消費税率%.0f%%）", price, iTax, tax * 100.0f);
     // "%.0f"で小数点以下を非表示。"%"自体を表示する場合は"%%"。
 }
 

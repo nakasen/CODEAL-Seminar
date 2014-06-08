@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4B5BCA218EF95F300663044"
+               BlueprintIdentifier = "B4BFAE511942CD2D00251754"
                BuildableName = "Foundation01.app"
                BlueprintName = "Foundation01"
                ReferencedContainer = "container:Foundation01.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4B5BCC318EF95F300663044"
+               BlueprintIdentifier = "B4BFAE721942CD2D00251754"
                BuildableName = "Foundation01Tests.xctest"
                BlueprintName = "Foundation01Tests"
                ReferencedContainer = "container:Foundation01.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4B5BCA218EF95F300663044"
+            BlueprintIdentifier = "B4BFAE511942CD2D00251754"
             BuildableName = "Foundation01.app"
             BlueprintName = "Foundation01"
             ReferencedContainer = "container:Foundation01.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4B5BCA218EF95F300663044"
+            BlueprintIdentifier = "B4BFAE511942CD2D00251754"
             BuildableName = "Foundation01.app"
             BlueprintName = "Foundation01"
             ReferencedContainer = "container:Foundation01.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4B5BCA218EF95F300663044"
+            BlueprintIdentifier = "B4BFAE511942CD2D00251754"
             BuildableName = "Foundation01.app"
             BlueprintName = "Foundation01"
             ReferencedContainer = "container:Foundation01.xcodeproj">

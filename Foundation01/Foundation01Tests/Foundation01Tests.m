@@ -2,7 +2,7 @@
 //  Foundation01Tests.m
 //  Foundation01Tests
 //
-//  Created by Satoshi Nakagawa on 2014/04/05.
+//  Created by Satoshi Nakagawa on 2014/06/07.
 //  Copyright (c) 2014年 nakasen.com. All rights reserved.
 //
 
