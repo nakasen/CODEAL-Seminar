@@ -2,7 +2,7 @@
 //  main.m
 //  UIKitSample02
 //
-//  Created by Satoshi Nakagawa on 2014/04/07.
+//  Created by Satoshi Nakagawa on 2014/06/14.
 //  Copyright (c) 2014年 nakasen.com. All rights reserved.
 //
 

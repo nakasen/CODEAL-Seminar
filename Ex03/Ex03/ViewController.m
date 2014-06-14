@@ -22,13 +22,10 @@
     Report *report = [[Report alloc] init];
     report.studentIDNo = @"AA001";
     report.name = @"コデアル太郎";
-    NSDictionary *scoreDictionary = @{@"math":@70, @"english":@60, @"japanese":@70};
+    NSDictionary *scoreDictionary = @{@"math":@60, @"english":@80, @"japanese":@80};
     report.scoreDict = scoreDictionary;
     
-    NSLog(@"学籍番号%@、%@さんの３科目平均点は、%.2f点です。",
-          report.studentIDNo,
-          report.name,
-          [report average:report.scoreDict]);
+    [report display];
 }
 
 - (void)didReceiveMemoryWarning

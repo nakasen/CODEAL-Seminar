@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  UIKitSample02
 //
-//  Created by Satoshi Nakagawa on 2014/04/07.
+//  Created by Satoshi Nakagawa on 2014/06/14.
 //  Copyright (c) 2014年 nakasen.com. All rights reserved.
 //
 
@@ -12,18 +12,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
-    FirstViewController *firstViewController = [[FirstViewController alloc] init];
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:firstViewController];
-    
-    self.window.rootViewController = navigationController;
-    
-    [self.window makeKeyAndVisible];
     return YES;
-
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

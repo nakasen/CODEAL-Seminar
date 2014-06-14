@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4E58DA818F280C500901D86"
+               BlueprintIdentifier = "B45417C2194BE9470047F4A7"
                BuildableName = "UIKitSample02.app"
                BlueprintName = "UIKitSample02"
                ReferencedContainer = "container:UIKitSample02.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4E58DC918F280C600901D86"
+               BlueprintIdentifier = "B45417E3194BE9470047F4A7"
                BuildableName = "UIKitSample02Tests.xctest"
                BlueprintName = "UIKitSample02Tests"
                ReferencedContainer = "container:UIKitSample02.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4E58DA818F280C500901D86"
+            BlueprintIdentifier = "B45417C2194BE9470047F4A7"
             BuildableName = "UIKitSample02.app"
             BlueprintName = "UIKitSample02"
             ReferencedContainer = "container:UIKitSample02.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4E58DA818F280C500901D86"
+            BlueprintIdentifier = "B45417C2194BE9470047F4A7"
             BuildableName = "UIKitSample02.app"
             BlueprintName = "UIKitSample02"
             ReferencedContainer = "container:UIKitSample02.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B4E58DA818F280C500901D86"
+            BlueprintIdentifier = "B45417C2194BE9470047F4A7"
             BuildableName = "UIKitSample02.app"
             BlueprintName = "UIKitSample02"
             ReferencedContainer = "container:UIKitSample02.xcodeproj">

@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>64F1565B-8D5C-4D3D-AC28-C8CE4E2AF7D9</string>
+	<string>2921C9D5-0613-483B-BDDE-94F674DC68DF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>UIKitSample01</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>14A9028B-D2FC-4FBC-8599-1F09CA2756F4</key>
+		<key>6273C6CF-C39C-479B-BEDB-486052D29011</key>
 		<string>https://github.com/nakasen/CODEAL-Seminar.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>UIKitSample01/UIKitSample01.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>14A9028B-D2FC-4FBC-8599-1F09CA2756F4</key>
+		<key>6273C6CF-C39C-479B-BEDB-486052D29011</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>14A9028B-D2FC-4FBC-8599-1F09CA2756F4</string>
+	<string>6273C6CF-C39C-479B-BEDB-486052D29011</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>14A9028B-D2FC-4FBC-8599-1F09CA2756F4</string>
+			<string>6273C6CF-C39C-479B-BEDB-486052D29011</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Programming24</string>
 		</dict>

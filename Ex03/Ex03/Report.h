@@ -10,10 +10,11 @@
 
 @interface Report : NSObject
 
-@property (nonatomic, strong) NSString *studentIDNo;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSDictionary *scoreDict;
+@property (nonatomic, copy) NSString *studentIDNo;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSDictionary *scoreDict;
 
 - (float)average:(NSDictionary *)score; // 平均点を求めるメソッド
+- (void)display; // NSLogで一覧表示するメソッド
 
 @end
