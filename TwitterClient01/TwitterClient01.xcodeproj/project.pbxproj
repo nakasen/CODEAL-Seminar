@@ -13,6 +13,7 @@
 		B432FC2C19021D5600D396C8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B432FC2B19021D5600D396C8 /* DetailViewController.m */; };
 		B432FC2F1902477E00D396C8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B432FC2E1902477E00D396C8 /* WebViewController.m */; };
 		B432FC3219024C8C00D396C8 /* MyUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B432FC3119024C8C00D396C8 /* MyUIApplication.m */; };
+		B4CC30F51A737C3B00ED581F /* TweetSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CC30F41A737C3B00ED581F /* TweetSheetViewController.m */; };
 		B4F541DF18F8F618003C2390 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F541DE18F8F618003C2390 /* Foundation.framework */; };
 		B4F541E118F8F618003C2390 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F541E018F8F618003C2390 /* CoreGraphics.framework */; };
 		B4F541E318F8F618003C2390 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F541E218F8F618003C2390 /* UIKit.framework */; };
@@ -52,6 +53,8 @@
 		B432FC2E1902477E00D396C8 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		B432FC3019024C8C00D396C8 /* MyUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyUIApplication.h; sourceTree = "<group>"; };
 		B432FC3119024C8C00D396C8 /* MyUIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyUIApplication.m; sourceTree = "<group>"; };
+		B4CC30F31A737C3B00ED581F /* TweetSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetSheetViewController.h; sourceTree = "<group>"; };
+		B4CC30F41A737C3B00ED581F /* TweetSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetSheetViewController.m; sourceTree = "<group>"; };
 		B4F541DB18F8F618003C2390 /* TwitterClient01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F541DE18F8F618003C2390 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B4F541E018F8F618003C2390 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +152,8 @@
 				B432FC3119024C8C00D396C8 /* MyUIApplication.m */,
 				B41ABF4D192720F400963746 /* SharedDataManager.h */,
 				B41ABF4E192720F400963746 /* SharedDataManager.m */,
+				B4CC30F31A737C3B00ED581F /* TweetSheetViewController.h */,
+				B4CC30F41A737C3B00ED581F /* TweetSheetViewController.m */,
 			);
 			path = TwitterClient01;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				B4F541EF18F8F618003C2390 /* AppDelegate.m in Sources */,
 				B432FC3219024C8C00D396C8 /* MyUIApplication.m in Sources */,
 				B42E7C3018F912E300A15605 /* TimeLineTableViewController.m in Sources */,
+				B4CC30F51A737C3B00ED581F /* TweetSheetViewController.m in Sources */,
 				B4F541EB18F8F618003C2390 /* main.m in Sources */,
 				B41ABF4F192720F400963746 /* SharedDataManager.m in Sources */,
 				B432FC2C19021D5600D396C8 /* DetailViewController.m in Sources */,

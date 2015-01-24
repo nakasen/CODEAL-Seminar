@@ -1,8 +1,8 @@
 //
 //  DetailViewController.m
-//  TwitterClient01
+//  Tsubu
 //
-//  Created by Satoshi Nakagawa on 2014/04/19.
+//  Created by Satoshi Nakagawa on 2014/06/21.
 //  Copyright (c) 2014年 nakasen.com. All rights reserved.
 //
 
@@ -10,10 +10,9 @@
 
 @interface DetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UITextView *nameView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (nonatomic, copy) NSString *httpErrorMessage;
 
 @end
 
@@ -32,6 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.navigationItem.title = @"Detail View";
     self.profileImageView.image = self.image;
     self.nameView.text = self.name;
@@ -58,9 +58,7 @@
 - (IBAction)retweetAction:(id)sender {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccount *account = [accountStore accountWithIdentifier:self.identifier];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.twitter.com"
-                                       @"/1.1/statuses/retweet/%@.json", self.idStr]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/retweet/%@.json", self.idStr]];
     SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                             requestMethod:SLRequestMethodPOST
                                                       URL:url
@@ -81,22 +79,21 @@
                                                 options:NSJSONReadingMutableContainers
                                                   error:NULL];
                 NSLog(@"SUCCESS! Created Retweet with ID: %@", postResponseData[@"id_str"]);
-            } else { // HTTPエラー発生時
+            } else {
                 self.httpErrorMessage =
-                [NSString stringWithFormat:@"The response status code is %zd",
+                [NSString stringWithFormat:@"The response status code is %d",
                  urlResponse.statusCode];
                 NSLog(@"HTTP Error: %@", self.httpErrorMessage);
-                // リツイート時のHTTPエラーメッセージを画面に表示する領域がない。今後の課題。
             }
-        } else { // リクエスト送信エラー発生時
+        } else {
             NSLog(@"ERROR: An error occurred while posting: %@", [error localizedDescription]);
-            // リクエスト時の送信エラーメッセージを画面に表示する領域がない。今後の課題。
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             UIApplication *application = [UIApplication sharedApplication];
             application.networkActivityIndicatorVisible = NO;
         });
     }];
+
 }
 
 @end

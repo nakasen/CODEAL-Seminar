@@ -62,17 +62,17 @@
 
 - (IBAction)tweetAction:(id)sender
 {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) { //利用可能チェック
-        NSString *serviceType = SLServiceTypeTwitter;
-        SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
-        [composeCtl setCompletionHandler:^(SLComposeViewControllerResult result) {
-            if (result == SLComposeViewControllerResultDone) {
-                //投稿成功時の処理
-                NSLog(@"Tweet Success!");
-            }
-        }];
-        [self presentViewController:composeCtl animated:YES completion:nil];
-    }
+//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) { //利用可能チェック
+//        NSString *serviceType = SLServiceTypeTwitter;
+//        SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+//        [composeCtl setCompletionHandler:^(SLComposeViewControllerResult result) {
+//            if (result == SLComposeViewControllerResultDone) {
+//                //投稿成功時の処理
+//                NSLog(@"Tweet Success!");
+//            }
+//        }];
+//        [self presentViewController:composeCtl animated:YES completion:nil];
+//    }
 }
 
 - (IBAction)setAccountAction:(id)sender
@@ -111,6 +111,11 @@
         TimeLineTableViewController *timeLineTableViewController = segue.destinationViewController;
         if ([timeLineTableViewController isKindOfClass:[TimeLineTableViewController class]]) {
             timeLineTableViewController.identifier = self.identifier;
+        }
+    } else if ([segue.identifier isEqualToString:@"TweetSegue"]) {
+        TweetSheetViewController *tweetSheetViewController = segue.destinationViewController;
+        if ([tweetSheetViewController isKindOfClass:[tweetSheetViewController class]]) {
+            tweetSheetViewController.identifier = self.identifier;
         }
     }
 }
